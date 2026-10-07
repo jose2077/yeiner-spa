@@ -37,7 +37,7 @@ function Location() {
 
             <div>
               <h3>Dirección</h3>
-              <p>Sector la Y, frente a envía</p>
+              <p>Sector la Y, frente a envía.</p>
             </div>
           </div>
 
