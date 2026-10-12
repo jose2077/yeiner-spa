@@ -28,11 +28,7 @@ function Services() {
           <div className="service-content">
             <h3>Lavado Interior</h3>
 
-            <p>
-              Eliminación de manchas y olores.
-            </p>
-
-            <button>Ver servicio →</button>
+            <p>Eliminación de manchas y olores.</p>
           </div>
         </div>
 
@@ -44,11 +40,7 @@ function Services() {
           <div className="service-content">
             <h3>Lavado de motor</h3>
 
-            <p>
-              Limpieza profunda y eliminación de suciedad y residuos.
-            </p>
-
-            <button>Ver servicio →</button>
+            <p>Limpieza profunda y eliminación de suciedad y residuos.</p>
           </div>
         </div>
 
@@ -60,12 +52,7 @@ function Services() {
           <div className="service-content">
             <h3>Lavado Exterior</h3>
 
-            <p>
-              Limpieza profunda y acabado
-              impecable.
-            </p>
-
-            <button>Ver servicio →</button>
+            <p>Limpieza profunda y acabado impecable.</p>
           </div>
         </div>
 
@@ -78,10 +65,9 @@ function Services() {
             <h3>Restauración de farolas</h3>
 
             <p>
-              Restauración de farolas para recuperar su brillo, transparencia y apariencia original.
+              Restauración de farolas para recuperar su brillo, transparencia y
+              apariencia original.
             </p>
-
-            <button>Ver servicio →</button>
           </div>
         </div>
 
@@ -94,10 +80,9 @@ function Services() {
             <h3>Descontaminación de pintura</h3>
 
             <p>
-              Eliminación de contaminantes adheridos a la pintura para recuperar su suavidad y brillo.
+              Eliminación de contaminantes adheridos a la pintura para recuperar
+              su suavidad y brillo.
             </p>
-
-            <button>Ver servicio →</button>
           </div>
         </div>
 
@@ -110,13 +95,17 @@ function Services() {
             <h3>Restauración de plásticos</h3>
 
             <p>
-              Restauración de plásticos exteriores para recuperar su color, brillo y apariencia original.
+              Restauración de plásticos exteriores para recuperar su color,
+              brillo y apariencia original.
             </p>
-
-            <button>Ver servicio →</button>
           </div>
         </div>
       </div>
+
+      <a href="#features" className="services-scroll">
+        <span>¿POR QUÉ ELEGIRNOS?</span>
+        <span className="services-scroll-arrow">⌄</span>
+      </a>
     </section>
   );
 }

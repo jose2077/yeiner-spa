@@ -1,8 +1,8 @@
 .services {
   width: 100%;
   min-height: 100vh;
-  padding: 30px 3% 35px 3%;
-
+  padding: 60px 3%;
+  box-sizing: border-box;
   background-color: #031132;
   color: white;
 }
@@ -26,8 +26,10 @@
 }
 
 .services-header span {
+  display: block;
   font-size: 17px;
   font-weight: 400;
+  line-height: 1.5;
   opacity: 0.8;
 }
 
@@ -37,11 +39,15 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
 }
 
 .service-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 20px;
   overflow: hidden;
@@ -52,22 +58,34 @@
 .service-image {
   width: 100%;
   height: 280px;
+  flex-shrink: 0;
   overflow: hidden;
 }
 
 .service-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.04);
 }
 
 .service-content {
+  flex: 1;
   padding: 25px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .service-content h3 {
   font-size: 23px;
   font-weight: 700;
+  line-height: 1.3;
   margin-bottom: 15px;
 }
 
@@ -78,8 +96,7 @@
 }
 
 .service-content button {
-  margin-top: 25px;
-
+  margin-top: auto;
   padding: 11px 22px;
 
   border: 1px solid white;
@@ -91,11 +108,280 @@
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .service-content button:hover {
   background-color: white;
   color: #031132;
+}
+
+/* Tablets */
+@media (max-width: 1000px) {
+  .services {
+    padding: 55px 4%;
+  }
+
+  .services-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .service-image {
+    height: 240px;
+  }
+
+  .service-content {
+    padding: 22px;
+  }
+
+  .service-content h3 {
+    font-size: 21px;
+  }
+}
+
+/* Celulares: fondo de una pantalla completa */
+@media (max-width: 600px) {
+  .services {
+  min-height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  box-sizing: border-box;
+
+  padding: clamp(25px, 5vh, 55px) 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+  .services-header {
+  flex-shrink: 0;
+  padding: 0 20px;
+  margin-bottom: clamp(20px, 4vh, 38px);
+}
+
+.services-header p {
+  font-size: 15px;
+  letter-spacing: 2.5px;
+  margin-bottom: 10px;
+}
+
+.services-header h2 {
+  font-size: clamp(30px, 7.5vw, 36px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.services-header span {
+  display: block;
+  max-width: 360px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+  /* Carrusel horizontal sin estirar las tarjetas */
+  .services-container {
+    display: flex;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+
+    gap: 16px;
+    padding: 0 20px 12px;
+    box-sizing: border-box;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .services-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-card {
+    flex: 0 0 88%;
+    min-width: 0;
+    max-width: 420px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    border-radius: 16px;
+  }
+
+  /* Imagen con altura definida, como una tarjeta normal */
+  .service-image {
+    width: 100%;
+    height: 230px;
+    flex: none;
+    overflow: hidden;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-content {
+  padding: 22px 22px 26px;
+}
+
+.service-content h3 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.service-content p {
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+  .service-card:hover .service-image img {
+    transform: none;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 360px) {
+  .services {
+    /* padding-top: 30px; */
+    padding-bottom: 25px;
+  }
+
+  .services-header {
+    margin-bottom: 22px;
+  }
+
+  .services-header h2 {
+    font-size: 26px;
+  }
+
+  .services-container {
+    gap: 12px;
+    padding-right: 16px;
+    padding-left: 16px;
+    scroll-padding-left: 16px;
+  }
+
+  .service-card {
+    flex-basis: 90%;
+  }
+
+  .service-image {
+    height: 200px;
+  }
+
+  .service-content {
+    padding: 18px;
+  }
+
+  .service-content h3 {
+    font-size: 19px;
+  }
+
+  .service-content p {
+    font-size: 13px;
+  }
+}
+
+
+/* Celulares pequeños */
+@media (max-width: 360px) {
+  .service-card {
+    flex-basis: 90%;
+  }
+
+  .service-image {
+    height: 190px;
+  }
+
+  .service-content {
+    padding: 18px;
+  }
+
+  .service-content h3 {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-image img {
+    transition: none;
+  }
+}
+
+
+/* Enlace a la siguiente sección */
+.services {
+  position: relative;
+}
+
+.services-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  width: fit-content;
+  margin: 30px auto 0;
+
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.services-scroll:hover {
+  opacity: 0.65;
+}
+
+.services-scroll-arrow {
+  font-size: 32px;
+  line-height: 1;
+  animation: services-arrow-bounce 1.6s infinite;
+}
+
+@keyframes services-arrow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-scroll {
+    margin-top: clamp(15px, 3vh, 25px);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .services-scroll-arrow {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-scroll-arrow {
+    animation: none;
+  }
 }

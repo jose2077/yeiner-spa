@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import './Hero.css'
+import { useState } from "react";
+import "./Hero.css";
 
-import video from '../assets/1.mp4'
-import video2 from '../assets/2.mp4'
-import video3 from '../assets/3.mp4'
+import video from "../assets/1.mp4";
+import video2 from "../assets/2.mp4";
+import video3 from "../assets/3.mp4";
 
 function Hero() {
+  const videos = [video, video2, video3];
 
-  const videos = [video, video2, video3]
-
-  const [currentVideo, setCurrentVideo] = useState(0)
+  const [currentVideo, setCurrentVideo] = useState(0);
 
   const handleVideoEnd = () => {
-    setCurrentVideo((prev) => (prev + 1) % videos.length)
-  }
+    setCurrentVideo((prev) => (prev + 1) % videos.length);
+  };
 
   return (
-
     <section className="hero">
-
       <video
         className="hero-video"
         src={videos[currentVideo]}
@@ -31,7 +28,6 @@ function Hero() {
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
-
         <p>ESPECIALISTAS EN LAVADO</p>
 
         <h1>
@@ -42,14 +38,20 @@ function Hero() {
 
         <div className="hero-buttons">
           <button>Ver servicios</button>
-          <button>Contactarnos</button>
+          <button
+            onClick={() => window.open("https://wa.me/573116222661", "_blank")}
+          >
+            Contactarnos
+          </button>
         </div>
 
+        <a href="#servicios" className="hero-scroll">
+          <span>DESCUBRIR SERVICIOS</span>
+          <span className="hero-scroll-arrow">⌄</span>
+        </a>
       </div>
-
     </section>
-
-  )
+  );
 }
 
-export default Hero
+export default Hero;

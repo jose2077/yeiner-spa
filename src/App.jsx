@@ -11,9 +11,9 @@ function App() {
       {" "}
       <Navbar /> 
       <Hero />
-      <Location />
-      <Features />
       <Services />
+      <Features />
+      <Location />
       {" "}
     </>
   );

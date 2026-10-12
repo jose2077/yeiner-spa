@@ -67,3 +67,126 @@
 
   cursor: pointer;
 }
+
+/* Tablets y celulares */
+@media (max-width: 768px) {
+  .hero {
+    height: calc(100svh - 76px);
+    min-height: 450px;
+  }
+
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  .hero-content p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(30px, 7vw, 42px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero-buttons button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 380px) {
+  .hero-content h1 {
+    font-size: 29px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+  }
+}
+
+
+.hero-scroll {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.hero-scroll:hover {
+  opacity: 0.65;
+}
+
+.hero-scroll-arrow {
+  font-size: 34px;
+  line-height: 1;
+  animation: hero-arrow-bounce 1.6s infinite;
+}
+
+@keyframes hero-arrow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Desplazamiento suave al navegar por anclas */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajustes para celular */
+@media (max-width: 600px) {
+  .hero-scroll {
+    bottom: 18px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-scroll-arrow {
+    font-size: 30px;
+  }
+}
+
+/* Respetar las preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-arrow {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
